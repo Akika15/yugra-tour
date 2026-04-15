@@ -21,9 +21,9 @@ jobs:
       run: |
         pip install flet folium requests mysql-connector-python Pillow
     
-    - name: Build APK
-      run: |
-        flet build apk --output YugraTour --no-ios
+- name: Build APK
+  run: |
+    flet build apk --output YugraTour --no-ios -y
     
     - name: Upload APK
       uses: actions/upload-artifact@v4
