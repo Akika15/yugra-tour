@@ -35,4 +35,4 @@ jobs:
         name: YugraTour
         path: |
           build/apk/*.apk
-          **/*.apk
+          **/*.apk 
