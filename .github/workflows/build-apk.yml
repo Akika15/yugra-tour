@@ -19,18 +19,14 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --upgrade pip
-        pip install flet
-        pip install folium
-        pip install requests
-        pip install mysql-connector-python
-        pip install Pillow
+        pip install -r requirements.txt
     
     - name: Build APK
       run: |
-        yes | flet build apk
+        echo "y" | flet build apk
     
-    - name: Upload APK to artifacts
+    - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
-        name: YugraTour-App
+        name: YugraTour
         path: build/apk/*.apk
