@@ -23,7 +23,7 @@ jobs:
     
     - name: Build APK
       run: |
-       flet build apk --output YugraTour
+        flet build apk --output YugraTour --no-ios
     
     - name: Upload APK
       uses: actions/upload-artifact@v4
