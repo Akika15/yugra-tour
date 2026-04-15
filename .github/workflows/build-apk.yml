@@ -1,6 +1,6 @@
 - name: Build APK
   run: |
-    flet build apk --output YugraTour
+    flet build apk
 on:
   push:
     branches: [ main ]
