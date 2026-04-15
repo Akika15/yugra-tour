@@ -33,6 +33,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: YugraTour
-        path: |
-          build/apk/*.apk
-          **/*.apk 
+        path: build/apk/*.apk
