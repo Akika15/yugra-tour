@@ -1,8 +1,6 @@
 name: Build APK
 
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -20,13 +18,21 @@ jobs:
     
     - name: Install dependencies
       run: |
-        pip install --upgrade pip
-        pip install flet
-        pip install folium
-        pip install requests
-        pip install mysql-connector-python
-        pip install Pillow
+        pip install flet folium requests mysql-connector-python Pillow
     
-    - name: Build APK with yes flag
+    - name: Build APK
       run: |
-        echo "y" | flet build apk --yes
+        echo "y" | flet build apk
+    
+    - name: List files (debug)
+      run: |
+        ls -la build/apk/ || echo "No APK found"
+        find . -name "*.apk" 2>/dev/null || echo "No APK files found"
+    
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: YugraTour
+        path: |
+          build/apk/*.apk
+          **/*.apk
